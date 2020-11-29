@@ -4,19 +4,25 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Todo List App</title>
+    <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body>
-    <h1><%= kindOfDay %></h1>
+    <div class="box" id="heading">
+      <h1><%= kindOfDay %></h1>
+    </div>
 
-    <ul>
-      <li>Meditate</li>
-      <li>Go For A Run</li>
-      <li>Read A Book</li>
-    </ul>
-    <form action="/" method="post">
-      <label for="task">What to do</label><br />
-      <input id="task" name="task" type="text" placeholder="Enter Task" /><br />
-      <button type="submit">Add</button>
-    </form>
+    <div class="box">
+      <% for (let i = 0; i < tasks.length; i++) { %>
+      <div class="item">
+        <input type="checkbox" />
+        <p><%= tasks[i] %></p>
+      </div>
+      <% } %>
+
+      <form class="item" action="/" method="post">
+        <input name="task" type="text" placeholder="Enter Task" />
+        <button type="submit">+</button>
+      </form>
+    </div>
   </body>
 </html>
